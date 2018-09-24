@@ -19,7 +19,8 @@ module.exports = {
            "linebreak-style": ["error", "windows"],
            "no-console": 0,
            "radix": 0,
-           "no-param-reassign": 0,            
+           "no-param-reassign": 0,
+           "no-unused-vars": 0,            
           "react/jsx-uses-react": "error",
           "react/jsx-uses-vars": "error",          
            

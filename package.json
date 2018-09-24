@@ -1,0 +1,33 @@
+{
+  "name": "virtualdom",
+  "version": "0.0.1",
+  "description": "virtual dom reverse engineered",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --exit"
+  },
+  "keywords": [
+    "virtual",
+    "dom",
+    "dom",
+    "react",
+    "diff",
+    "patch",
+    "virtual",
+    "reverse",
+    "engineered"
+  ],
+  "author": {
+    "name": "Jason Williams",
+    "email": "jasonwilliams@letuscode.co.uk",
+    "url": "http://letuscode.co.uk"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1"
+  }
+}

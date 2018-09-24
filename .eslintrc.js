@@ -19,16 +19,7 @@ module.exports = {
            "linebreak-style": ["error", "windows"],
            "no-console": 0,
            "radix": 0,
-           "no-param-reassign": 0, 
-           "react/jsx-filename-extension": [
-            1,
-            {
-              "extensions": [
-                ".js",
-                ".jsx"
-              ]
-            }
-          ],
+           "no-param-reassign": 0,            
           "react/jsx-uses-react": "error",
           "react/jsx-uses-vars": "error",          
            
@@ -36,6 +27,7 @@ module.exports = {
         "overrides": [
             {
                 "files": ["*.spec.js", "*.test.js"],
+               
                 "rules": {
                     "no-unused-expressions": 0
                 }

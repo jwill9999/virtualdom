@@ -4,7 +4,8 @@
   "description": "virtual dom reverse engineered",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --exit"
+    "test": "mocha --exit",
+    "compile": "babel index.js --out-file compiled.js --watch"
   },
   "keywords": [
     "virtual",
@@ -24,6 +25,9 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
     "chai": "^4.1.2",
     "eslint": "^5.6.0",
     "eslint-config-airbnb": "^17.1.0",

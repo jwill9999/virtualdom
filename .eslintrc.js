@@ -11,13 +11,14 @@ module.exports = {
         "plugins": [   
             "import",
             "react",        
-            "prettier",
-            "jsx-a11y"  
+            "jsx-a11y",
+            "prettier"
           ],
         "rules": {
            "prettier/prettier": "error",
            "linebreak-style": ["error", "windows"],
            "no-console": 0,
+           "no-undef": 0,
            "radix": 0,
            "no-param-reassign": 0,
            "no-unused-vars": 0,            
@@ -33,7 +34,12 @@ module.exports = {
                     "no-unused-expressions": 0
                 }
             }
-        ]
+        ],
+        "parserOptions": {
+            "ecmaFeatures": {
+              "jsx": true
+            }
+          }
    
   
 };

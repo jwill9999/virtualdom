@@ -3,6 +3,7 @@
     ["transform-react-jsx", {
       "pragma": "h"
     }]
+
   ],
   "presets": [
     "env"

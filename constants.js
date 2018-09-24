@@ -1,8 +1,0 @@
-module.exports = {
-  CREATE: "CREATE",
-  REMOVE: "REMOVE",
-  REPLACE: "REPLACE",
-  UPDATE: "UPDATE",
-  SET_PROP: "SET_PROP",
-  REMOVE_PROP: "REMOVE_PROP"
-};

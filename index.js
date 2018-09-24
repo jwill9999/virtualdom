@@ -1,11 +1,9 @@
-import {
-  CREATE,
-  REMOVE,
-  REPLACE,
-  UPDATE,
-  SET_PROP,
-  REMOVE_PROP
-} from "./constants";
+const CREATE = "CREATE";
+const REMOVE = "REMOVE";
+const REPLACE = "REPLACE";
+const UPDATE = "UPDATE";
+const SET_PROP = "SET_PROP";
+const REMOVE_PROP = "REMOVE_PROP";
 
 /** ****************************************************
  *                    DIFF
@@ -23,11 +21,28 @@ const diff = (newNode, oldNode) => {};
  *                    PATCH
  ***************************************************** */
 
-const createElement = node => {};
+const setProps = (target, name, value) =>
+  name === "className"
+    ? target.setAttribute("class", value)
+    : target.setAttribute(name, value);
 
-const setProp = (target, name, value) => {};
+const getProps = (target, props) => {
+  Object.keys(props).forEach(name => {
+    setProps(target, name, props[name]);
+  });
+};
 
-const setProps = (target, props) => {};
+const createElement = node => {
+  if (typeof node === "string") {
+    return document.createTextNode(node);
+  }
+  const el = document.createElement(node.type);
+  // append props
+  getProps(el, node.props);
+  // append children
+  node.children.map(createElement).forEach(el.appendChild.bind(el));
+  return el;
+};
 
 const removeProp = (target, name, value) => {};
 
@@ -35,16 +50,43 @@ const patchProp = (parent, patches) => {};
 
 const patch = (parent, patches, index = 0) => {};
 
-/** ****************************************************
- *                    MY APPLICATION
- ***************************************************** */
+/** ******************************************
+ *   HELPER FUNCTION DEEPLY FLATTENS ARRAYS
+ ******************************************** */
 
-const flatten = arr => {};
+const flattenArrayDeep = arr =>
+  arr.reduce(
+    (acc, val) =>
+      Array.isArray(val) ? acc.concat(flattenArrayDeep(val)) : acc.concat(val),
+    []
+  );
 
-const h = (type, props, ...children) => {};
+/** ******************************************
+ *           TRANSFORM JSX FUNCTION
+ ******************************************** */
 
-const view = count => {};
+const h = (type, props, ...children) => {
+  props = props || {};
+  return {
+    type,
+    props,
+    children: flattenArrayDeep(children)
+  };
+};
+
+/** ******************************************
+ *              VIEW METHOD
+ ******************************************** */
+
+const view = count => (
+  <ul id="cool" className="foo">
+    <li className="test">test</li>
+    <li>text2</li>
+  </ul>
+);
 
 const tick = (el, count) => {};
 
-const render = el => {};
+const render = el => {
+  el.appendChild(createElement(view(0)));
+};

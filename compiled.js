@@ -34,14 +34,14 @@ var getProps = function getProps(target, props) {
 };
 
 var createElement = function createElement(node) {
-  if (typeof node === "string") {
+  if (typeof node === "string") {   
     return document.createTextNode(node);
-  }
+  }  
   var el = document.createElement(node.type);
   // append props
   getProps(el, node.props);
   // append children
-  node.children.map(createElement).forEach(el.appendChild.bind(el));
+  node.children.map(createElement).forEach(el.appendChild.bind(el));  
   return el;
 };
 
@@ -106,3 +106,10 @@ var tick = function tick(el, count) {};
 var render = function render(el) {
   el.appendChild(createElement(view(0)));
 };
+
+module.exports = {
+  view,
+  h,
+  flattenArrayDeep,
+  createElement
+}
